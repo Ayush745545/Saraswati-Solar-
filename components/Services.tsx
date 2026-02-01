@@ -32,11 +32,11 @@ const Services: React.FC<ServicesProps> = ({ onOpenCalculator }) => {
             
             <div className="p-8 flex-1 flex flex-col">
               <div className="flex items-baseline mb-2">
-                <span className="text-4xl font-extrabold text-slate-900 tracking-tight">₹1,12,000</span>
-                <span className="ml-2 text-sm text-slate-500 font-medium">approx.</span>
+                <span className="text-4xl font-extrabold text-slate-900 tracking-tight">₹1,90,000</span>
+                <span className="ml-3 text-sm text-slate-500">gross</span>
               </div>
               <p className="text-green-600 font-medium text-xs mb-6 bg-green-50 px-3 py-1 rounded-full inline-block self-start">
-                *Price after ₹78,000 Govt Subsidy
+                approx. ₹1,12,000 after ₹78,000 Govt Subsidy
               </p>
 
               <ul className="space-y-4 mb-8 flex-1">

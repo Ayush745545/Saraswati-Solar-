@@ -10,6 +10,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
   const navLinks = [
     { name: 'Solutions', href: '#services' },
+    { name: 'Products', href: '#products' },
     { name: 'Why Us', href: '#why-us' },
     { name: 'Subsidies', href: '#incentives' },
     { name: 'About', href: '#about' },
@@ -25,7 +26,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               <Sun className="h-8 w-8 text-orange-500" />
               <div className="flex flex-col">
                 <span className="font-bold text-xl leading-none text-blue-900 tracking-tight">SARASWATI SOLAR</span>
-                <span className="text-xs font-medium text-slate-500 tracking-widest">POWER SOLUTION</span>
+                <span className="text-xs font-medium text-slate-500 tracàking-widest">POWER SOLUTION</span>
               </div>
             </div>
           </div>

@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import WhyUs from './components/WhyUs';
 import Services from './components/Services';
+import Products from './components/Products';
 import Features from './components/Features';
 import Process from './components/Process';
 import Incentives from './components/Incentives';
@@ -29,6 +30,7 @@ const App: React.FC = () => {
         />
         <WhyUs />
         <Services onOpenCalculator={() => setIsCalculatorOpen(true)} />
+        <Products />
         <Features />
         <Process />
         <Incentives />
