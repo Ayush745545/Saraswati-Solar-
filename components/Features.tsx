@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Sun, Shield, Cable, Zap, PenTool } from 'lucide-react';
+import { MapPin, Sun, Cable, Zap, PenTool } from 'lucide-react';
 
 const Features: React.FC = () => {
   const features = [
@@ -12,11 +12,6 @@ const Features: React.FC = () => {
       icon: <Sun className="w-8 h-8 text-orange-600" />,
       title: "Adani Solar Panels",
       description: "We use authorized Adani Solar modules (Mono PERC / TOPCon) for maximum efficiency and long-term reliability."
-    },
-    {
-      icon: <Shield className="w-8 h-8 text-orange-600" />,
-      title: "25-Year Warranty",
-      description: "Secure your energy future with a comprehensive 25-year performance warranty on solar modules."
     },
     {
       icon: <Cable className="w-8 h-8 text-orange-600" />,
