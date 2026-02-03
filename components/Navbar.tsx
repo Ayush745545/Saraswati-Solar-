@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Sun } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 interface NavbarProps {
   onOpenBooking: () => void;
@@ -22,12 +22,12 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center">
-            <div className="flex-shrink-0 flex items-center gap-2">
-              <Sun className="h-8 w-8 text-orange-500" />
-              <div className="flex flex-col">
-                <span className="font-bold text-xl leading-none text-blue-900 tracking-tight">SARASWATI SOLAR</span>
-                <span className="text-xs font-medium text-slate-500 tracàking-widest">POWER SOLUTION</span>
-              </div>
+            <div className="flex-shrink-0 flex items-center">
+              <img 
+                src="/img/ChatGPT Image Feb 1, 2026, 09_55_07 PM.png" 
+                alt="Saraswati Solar Logo"
+                className="h-24 w-auto object-contain"
+              />
             </div>
           </div>
           
