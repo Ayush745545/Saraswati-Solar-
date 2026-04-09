@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Menu, X, Globe } from 'lucide-react';
 
 interface NavbarProps {
   onOpenBooking: () => void;
@@ -7,6 +7,25 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [lang, setLang] = useState<'en' | 'hi'>('en');
+
+  useEffect(() => {
+    // Check google translate cookie to set initial button state
+    const match = document.cookie.match(/(^|;) ?googtrans=([^;]*)(;|$)/);
+    if (match && match[2] === '/en/hi') {
+      setLang('hi');
+    } else {
+      setLang('en');
+    }
+  }, []);
+
+  const toggleLanguage = () => {
+    const newLang = lang === 'en' ? 'hi' : 'en';
+    const cookieString = `/en/${newLang}`;
+    document.cookie = `googtrans=${cookieString}; path=/`;
+    document.cookie = `googtrans=${cookieString}; domain=${window.location.hostname}; path=/`;
+    window.location.reload();
+  };
 
   const navLinks = [
     { name: 'Solutions', href: '#services' },
@@ -42,6 +61,14 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               </a>
             ))}
             <button
+              onClick={toggleLanguage}
+              className="flex items-center space-x-1.5 text-slate-600 hover:text-orange-600 font-medium transition-colors cursor-pointer mr-2"
+              title="Toggle language Hindi/English"
+            >
+              <Globe className="h-5 w-5" />
+              <span>{lang === 'en' ? 'HI' : 'EN'}</span>
+            </button>
+            <button
               onClick={onOpenBooking}
               className="bg-blue-900 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-blue-800 transition-colors shadow-md hover:shadow-lg cursor-pointer"
             >
@@ -74,6 +101,16 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
                 {link.name}
               </a>
             ))}
+            <button
+              onClick={() => {
+                toggleLanguage();
+                setIsOpen(false);
+              }}
+              className="flex items-center space-x-2 px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 w-full text-left cursor-pointer"
+            >
+              <Globe className="h-5 w-5" />
+              <span>{lang === 'en' ? 'Switch to Hindi (हिंदी)' : 'Switch to English'}</span>
+            </button>
             <button
               onClick={() => {
                 setIsOpen(false);

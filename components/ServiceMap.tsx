@@ -24,8 +24,8 @@ const ServiceMap: React.FC = () => {
       const map = L.map(mapContainerRef.current).setView([centerLat, centerLng], 9);
       mapInstanceRef.current = map;
 
-      // Add OpenStreetMap tile layer
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+      // Add Dark Mode tile layer (CartoDB Dark Matter)
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
         subdomains: 'abcd',
         maxZoom: 19
@@ -35,10 +35,34 @@ const ServiceMap: React.FC = () => {
       const officeLat = 29.82; 
       const officeLng = 77.65;
       
+      const popupContent = `
+        <div style="background-color: #0f172a; color: white; padding: 10px; border-radius: 8px; border: 1px solid #f97316;">
+          <b style="color: #f97316; font-size: 14px;">Saraswati Solar</b><br>
+          <span style="font-size: 12px; opacity: 0.8;">Regional Center, Talheri Buzurg</span>
+        </div>
+      `;
+
       L.marker([officeLat, officeLng])
         .addTo(map)
-        .bindPopup('<b>Saraswati Solar</b><br>Regional Center, Talheri Buzurg')
+        .bindPopup(popupContent, {
+          className: 'custom-dark-popup',
+          closeButton: false
+        })
         .openPopup();
+
+      // Style override for Leaflet popup default white background
+      const style = document.createElement('style');
+      style.innerHTML = `
+        .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+          background: #0f172a !important;
+          color: white !important;
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4) !important;
+        }
+        .leaflet-container {
+          background: #0f172a !important;
+        }
+      `;
+      document.head.appendChild(style);
 
       // Add a circle representing service area (approx 40km radius)
       L.circle([officeLat, officeLng], {
@@ -64,7 +88,7 @@ const ServiceMap: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full h-full relative z-0">
+    <div className="w-full h-full relative z-0 bg-slate-900">
       <div 
         ref={mapContainerRef} 
         className="w-full h-full rounded-lg"

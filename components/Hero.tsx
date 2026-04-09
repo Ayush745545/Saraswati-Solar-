@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Star, Calculator, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Star, Calculator, ArrowRight, Zap } from 'lucide-react';
 
 interface HeroProps {
   onOpenCalculator: () => void;
@@ -7,9 +7,16 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ onOpenCalculator, onOpenBooking }) => {
+  const subsidyData = [
+    { capacity: "1 kW", central: "₹30,000", state: "₹15,000", total: "₹45,000" },
+    { capacity: "2 kW", central: "₹60,000", state: "₹30,000", total: "₹90,000" },
+    { capacity: "3 kW", central: "₹78,000", state: "₹30,000", total: "₹1,08,000" },
+    { capacity: "Above 3kW", central: "₹78,000", state: "₹30,000", total: "₹1,08,000" },
+  ];
+
   return (
-    <div className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-transparent">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* Left Content */}
@@ -47,8 +54,9 @@ const Hero: React.FC<HeroProps> = ({ onOpenCalculator, onOpenBooking }) => {
                 />
               </div>
             </div>
-            {/* Subsidy Table */}
-            <div className="overflow-hidden rounded-xl border border-slate-200 shadow-lg bg-white mb-10 ring-1 ring-slate-100">
+
+            {/* Subsidy Table — Desktop */}
+            <div className="hidden md:block overflow-hidden rounded-xl border border-slate-200 shadow-lg bg-white mb-10 ring-1 ring-slate-100">
               <table className="w-full text-sm md:text-base">
                 <thead>
                   <tr className="bg-[#1e3a8a] text-white">
@@ -59,32 +67,42 @@ const Hero: React.FC<HeroProps> = ({ onOpenCalculator, onOpenBooking }) => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
-                  <tr className="hover:bg-slate-50 transition-colors">
-                    <td className="py-4 px-4 font-medium text-slate-900">1 kW</td>
-                    <td className="py-4 px-4 text-center text-slate-600">₹30,000</td>
-                    <td className="py-4 px-4 text-center text-slate-600">₹15,000</td>
-                    <td className="py-4 px-4 text-center font-bold text-blue-700">₹45,000</td>
-                  </tr>
-                  <tr className="hover:bg-slate-50 transition-colors">
-                    <td className="py-4 px-4 font-medium text-slate-900">2 kW</td>
-                    <td className="py-4 px-4 text-center text-slate-600">₹60,000</td>
-                    <td className="py-4 px-4 text-center text-slate-600">₹30,000</td>
-                    <td className="py-4 px-4 text-center font-bold text-blue-700">₹90,000</td>
-                  </tr>
-                  <tr className="hover:bg-slate-50 transition-colors">
-                    <td className="py-4 px-4 font-medium text-slate-900">3 kW</td>
-                    <td className="py-4 px-4 text-center text-slate-600">₹78,000</td>
-                    <td className="py-4 px-4 text-center text-slate-600">₹30,000</td>
-                    <td className="py-4 px-4 text-center font-bold text-blue-700">₹1,08,000</td>
-                  </tr>
-                  <tr className="hover:bg-slate-50 transition-colors">
-                    <td className="py-4 px-4 font-medium text-slate-900">Above 3kW</td>
-                    <td className="py-4 px-4 text-center text-slate-600">₹78,000</td>
-                    <td className="py-4 px-4 text-center text-slate-600">₹30,000</td>
-                    <td className="py-4 px-4 text-center font-bold text-blue-700">₹1,08,000</td>
-                  </tr>
+                  {subsidyData.map((row, index) => (
+                    <tr key={index} className="hover:bg-slate-50 transition-colors">
+                      <td className="py-4 px-4 font-medium text-slate-900">{row.capacity}</td>
+                      <td className="py-4 px-4 text-center text-slate-600">{row.central}</td>
+                      <td className="py-4 px-4 text-center text-slate-600">{row.state}</td>
+                      <td className="py-4 px-4 text-center font-bold text-blue-700">{row.total}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
+            </div>
+
+            {/* Subsidy Cards — Mobile */}
+            <div className="md:hidden space-y-3 mb-10">
+              {subsidyData.map((row, index) => (
+                <div key={index} className="bg-white rounded-xl shadow-md border border-slate-100 overflow-hidden">
+                  <div className="bg-[#1e3a8a] text-white px-4 py-3 flex items-center justify-between">
+                    <h3 className="font-bold text-base">{row.capacity}</h3>
+                    <Zap className="w-4 h-4 text-orange-300" />
+                  </div>
+                  <div className="p-4 space-y-2">
+                    <div className="flex items-center justify-between py-1.5">
+                      <span className="text-slate-500 text-xs font-medium">Central Subsidy</span>
+                      <span className="text-slate-900 font-bold text-sm">{row.central}</span>
+                    </div>
+                    <div className="flex items-center justify-between py-1.5 border-t border-slate-100">
+                      <span className="text-slate-500 text-xs font-medium">State Subsidy</span>
+                      <span className="text-slate-900 font-bold text-sm">{row.state}</span>
+                    </div>
+                    <div className="flex items-center justify-between py-2.5 bg-blue-50 -mx-4 px-4 mt-2 rounded-b-lg">
+                      <span className="text-blue-800 text-xs font-bold uppercase tracking-wider">Total</span>
+                      <span className="text-blue-700 font-extrabold text-lg">{row.total}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
 
             {/* CTA Buttons */}

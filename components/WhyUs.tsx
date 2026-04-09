@@ -1,4 +1,5 @@
 import React from 'react';
+import { Camera } from 'lucide-react';
 
 const WhyUs: React.FC = () => {
   interface Step {
@@ -31,7 +32,7 @@ const WhyUs: React.FC = () => {
   ];
 
   return (
-    <section id="why-us" className="py-20 bg-white">
+    <section id="why-us" className="py-20 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header Section with Blue Bar Style */}
@@ -51,6 +52,14 @@ const WhyUs: React.FC = () => {
               {/* Image Section */}
               <div className="h-64 overflow-hidden relative">
                 <div className="absolute inset-0 bg-blue-900/10 group-hover:bg-transparent transition-colors z-10"></div>
+                
+                {/* Real Installation Badge */}
+                <div className="absolute top-3 left-3 z-20 flex items-center gap-1.5 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 rounded-full border border-white/10">
+                  <Camera className="w-3 h-3" />
+                  {/* REPLACE WITH REAL PHOTO: Swap these videos with actual footage from your installations */}
+                  <span className="text-[10px] font-bold uppercase tracking-wider">Real Installation</span>
+                </div>
+
                 {item.video ? (
                   <video
                     src={item.video}

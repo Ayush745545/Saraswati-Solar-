@@ -39,7 +39,7 @@ Comments: ${formData.comments}`;
   };
 
   return (
-    <section id="contact" className="py-24 bg-slate-50 relative">
+    <section id="contact" className="py-24 bg-transparent relative">
       
       {/* Header Section */}
       <div className="max-w-4xl mx-auto px-4 text-center mb-16">

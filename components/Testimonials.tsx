@@ -1,17 +1,31 @@
 import React, { useState } from 'react';
-import { Star, Quote, MapPin } from 'lucide-react';
+import { Star, Quote, MapPin, Play, Camera } from 'lucide-react';
 
 const Testimonials: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   const reviews = [
+    {
+      name: "Dr. Sharma",
+      location: "Deoband",
+      text: "Electricity bill dropped from ₹4000 to ₹200. The net metering process was handled completely by them. My meter literally runs backwards now!",
+      rating: 5,
+      color: "bg-emerald-600",
+      accent: "text-emerald-200",
+      /* REPLACE WITH REAL VIDEO: Place your 30-second customer video at /videos/testimonial-dr-sharma.mp4 */
+      hasVideo: true,
+      videoSrc: "/videos/testimonials-bg.mp4",
+      videoPoster: "/img/trusted-neighbors-bg.jpg"
+    },
     {
       name: "Rajesh Kumar",
       location: "Talheri Buzurg",
       text: "The team from Saraswati Solar was very professional. They installed the 3kW system in just 2 days. The subsidy amount was credited to my account within a month.",
       rating: 5,
       color: "bg-orange-600",
-      accent: "text-orange-200"
+      accent: "text-orange-200",
+      hasVideo: false
     },
     {
       name: "Amit Singh",
@@ -19,15 +33,8 @@ const Testimonials: React.FC = () => {
       text: "I was worried about the structure strength, but they used heavy galvanized iron. Very sturdy work. Highly recommended for anyone looking for Adani panels.",
       rating: 5,
       color: "bg-blue-600",
-      accent: "text-blue-200"
-    },
-    {
-      name: "Dr. Sharma",
-      location: "Deoband",
-      text: "Electricity bill dropped from ₹4000 to ₹200. The net metering process was handled completely by them. Excellent service.",
-      rating: 5,
-      color: "bg-emerald-600",
-      accent: "text-emerald-200"
+      accent: "text-blue-200",
+      hasVideo: false
     }
   ];
 
@@ -56,7 +63,7 @@ const Testimonials: React.FC = () => {
             return (
               <div
                 key={index}
-                onClick={() => setActiveIndex(index)}
+                onClick={() => { setActiveIndex(index); setIsVideoPlaying(false); }}
                 className={`
                   relative rounded-t-3xl cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]
                   overflow-hidden border-t border-x border-white/10 shadow-2xl
@@ -76,6 +83,35 @@ const Testimonials: React.FC = () => {
                 {/* Active State Content */}
                 <div className={`absolute inset-0 p-8 md:p-12 flex flex-col justify-between transition-all duration-500 delay-100 ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 pointer-events-none'}`}>
                   <Quote className={`absolute top-6 right-6 md:top-12 md:right-12 w-20 h-20 ${review.accent} opacity-20 rotate-12`} />
+
+                  {/* Video Testimonial Play Button */}
+                  {review.hasVideo && isActive && !isVideoPlaying && (
+                    <button
+                      onClick={(e) => { e.stopPropagation(); setIsVideoPlaying(true); }}
+                      className="absolute top-6 left-6 md:top-12 md:left-auto md:right-36 z-20 flex items-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-4 py-2 rounded-full transition-all border border-white/20 group"
+                    >
+                      <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <Play className="w-4 h-4 text-emerald-700 fill-emerald-700 ml-0.5" />
+                      </div>
+                      <span className="text-sm font-bold">Watch Video</span>
+                    </button>
+                  )}
+
+                  {/* Video Player Overlay */}
+                  {review.hasVideo && isActive && isVideoPlaying && (
+                    <div className="absolute inset-0 z-30 bg-black/90 flex items-center justify-center p-4"
+                      onClick={(e) => { e.stopPropagation(); setIsVideoPlaying(false); }}
+                    >
+                      <video
+                        src={review.videoSrc}
+                        poster={review.videoPoster}
+                        controls
+                        autoPlay
+                        className="max-w-full max-h-full rounded-xl shadow-2xl"
+                        onClick={(e) => e.stopPropagation()}
+                      />
+                    </div>
+                  )}
 
                   <div className="relative z-10 mt-4 md:mt-8">
                     <div className="flex gap-1 mb-6">
@@ -99,11 +135,37 @@ const Testimonials: React.FC = () => {
                         {review.location}
                       </div>
                     </div>
+                    {review.hasVideo && (
+                      <div className="ml-auto flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-full border border-white/10">
+                        <Camera className="w-3.5 h-3.5 text-white/70" />
+                        <span className="text-[10px] text-white/70 font-bold uppercase tracking-wider">Video Review</span>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
             );
           })}
+        </div>
+
+        {/* Net Meter Proof Section */}
+        <div className="mt-16 max-w-3xl mx-auto">
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 md:p-10 text-center">
+            <div className="flex flex-col items-center gap-4">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+                <span className="text-xs font-bold text-green-400 uppercase tracking-wider">Net Metering Proof</span>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-2">We Handle UPPCL Paperwork End-to-End</h3>
+              <p className="text-slate-300 text-base leading-relaxed max-w-2xl">
+                Our technicians manage the complete UPPCL application, bi-directional meter installation, and inspection scheduling — 
+                ensuring your solar system is commissioned without you ever having to visit a government office.
+              </p>
+              <a href="#contact" className="inline-flex items-center gap-2 mt-4 bg-orange-500/10 hover:bg-orange-500/20 text-orange-400 px-6 py-2 rounded-full border border-orange-500/20 font-bold text-sm transition-all">
+                Learn about Net Metering →
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

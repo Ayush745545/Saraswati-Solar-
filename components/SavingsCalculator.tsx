@@ -106,6 +106,39 @@ const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({ isOpen, onClose }
         </div>
         
         <div className="p-6 md:p-8 overflow-y-auto custom-scrollbar">
+          {/* ROI Highlight Badge */}
+          <div className="mb-6 bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl p-4 flex items-center justify-between shadow-lg">
+            <div>
+              <p className="text-green-100 text-[10px] font-bold uppercase tracking-wider">Your Investment Pays Back In</p>
+              <p className="text-3xl font-black text-white">{payback.central} Years</p>
+            </div>
+            <div className="text-right">
+              <p className="text-green-100 text-[10px] font-bold uppercase tracking-wider">Then Enjoy</p>
+              <p className="text-2xl font-black text-white">~{25 - parseFloat(payback.central)} Yrs</p>
+              <p className="text-green-200 text-[10px] font-bold">FREE ELECTRICITY</p>
+            </div>
+          </div>
+
+          {/* Visual Payback Progress Bar */}
+          <div className="mb-6 bg-slate-50 rounded-xl p-4 border border-slate-100">
+            <div className="flex justify-between text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-2">
+              <span>Investment</span>
+              <span>25 Year Panel Life</span>
+            </div>
+            <div className="w-full h-4 bg-slate-200 rounded-full overflow-hidden relative">
+              <div 
+                className="h-full bg-gradient-to-r from-orange-500 to-orange-400 rounded-full transition-all duration-700 ease-out relative"
+                style={{ width: `${Math.min((parseFloat(payback.central) / 25) * 100, 100)}%` }}
+              >
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow border-2 border-orange-500"></div>
+              </div>
+            </div>
+            <div className="flex justify-between text-[10px] mt-1.5">
+              <span className="text-orange-600 font-bold">← Payback ({payback.central} yrs)</span>
+              <span className="text-green-600 font-bold">Free Electricity →</span>
+            </div>
+          </div>
+
           {/* Slider Section */}
           <div className="mb-8 bg-slate-50 p-6 rounded-xl border border-slate-100">
             <label className="block text-slate-700 font-bold mb-4 flex justify-between items-end">
@@ -119,7 +152,8 @@ const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({ isOpen, onClose }
               step="500" 
               value={bill} 
               onChange={(e) => setBill(parseInt(e.target.value))}
-              className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-orange-500 hover:accent-orange-600 transition-all focus:outline-none focus:ring-2 focus:ring-orange-500/50"
+              className="w-full h-4 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-orange-500 hover:accent-orange-600 transition-all focus:outline-none focus:ring-2 focus:ring-orange-500/50"
+              style={{ WebkitAppearance: 'none' }}
             />
             <div className="flex justify-between text-xs text-slate-400 mt-3 font-medium">
               <span>₹1,000</span>
