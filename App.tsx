@@ -25,10 +25,10 @@ const App: React.FC = () => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-900 font-inter">
-      <div className="flex-grow bg-gradient-to-br from-blue-50 via-slate-50 to-blue-100 text-slate-900 relative">
-        <div className="absolute top-0 left-0 w-full h-[150vh] bg-blue-400/10 rounded-full blur-[120px] -translate-x-1/4 -translate-y-1/2 pointer-events-none fixed"></div>
-        <div className="absolute bottom-0 right-0 w-full h-[150vh] bg-orange-400/5 rounded-full blur-[120px] translate-x-1/4 translate-y-1/4 pointer-events-none fixed"></div>
+    <div className="min-h-screen flex flex-col bg-slate-900 font-inter w-full overflow-x-hidden">
+      <div className="flex-grow bg-gradient-to-br from-blue-50 via-slate-50 to-blue-100 text-slate-900 relative w-full">
+        <div className="fixed top-0 left-0 w-full h-[150vh] bg-blue-400/10 rounded-full blur-[120px] -translate-x-1/4 -translate-y-1/2 pointer-events-none"></div>
+        <div className="fixed bottom-0 right-0 w-full h-[150vh] bg-orange-400/5 rounded-full blur-[120px] translate-x-1/4 translate-y-1/4 pointer-events-none"></div>
         
         <Navbar onOpenBooking={() => setIsBookingOpen(true)} />
         
