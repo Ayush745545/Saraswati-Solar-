@@ -78,6 +78,7 @@ const About: React.FC = () => {
                   src="/img/hero-solar-installation.jpg" 
                   alt="Saraswati Solar Installation Team working on a rooftop" 
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
               

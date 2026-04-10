@@ -123,6 +123,7 @@ const Gallery: React.FC = () => {
               <img
                 src={project.image}
                 alt={project.alt}
+                loading="lazy"
                 className="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)]"
               />
               

@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    height: 100%;
+    background-color: #0f172a;
+    overflow-x: hidden;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    top: 0 !important;
+    margin: 0;
+    min-height: 100%;
+    background-color: #0f172a;
+    overflow-x: hidden;
+    width: 100%;
+  }
+  /* Hide default Google Translate widgets */
+  .skiptranslate, #google_translate_element, .goog-te-banner-frame, .VIpgJd-ZVi9od-ORHb-OEVmcd {
+    display: none !important;
+  }
+}
+
+@theme {
+  --font-inter: "Inter", sans-serif;
+  --animate-bounce-slow: bounce 3s linear infinite;
+}

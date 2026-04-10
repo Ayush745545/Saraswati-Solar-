@@ -42,6 +42,10 @@ const Hero: React.FC<HeroProps> = ({ onOpenCalculator, onOpenBooking }) => {
                   src="/img/ChatGPT Image Jan 18, 2026, 11_24_25 AM.png"
                   alt="Solar house and person illustration"
                   className="w-full h-auto object-contain"
+                  width="320"
+                  height="180"
+                  loading="eager"
+                  fetchpriority="high"
                   style={{ maxHeight: '180px', minWidth: '120px' }}
                 />
                 {/* Soft shadow under house base */}
@@ -132,6 +136,10 @@ const Hero: React.FC<HeroProps> = ({ onOpenCalculator, onOpenBooking }) => {
                 src="/img/hero-family-solar.jpg"
                 alt="Happy Indian Family with 3kW Solar System in Saharanpur"
                 className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000"
+                width="800"
+                height="600"
+                loading="eager"
+                fetchpriority="high"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent"></div>
 

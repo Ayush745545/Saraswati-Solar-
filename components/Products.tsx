@@ -144,6 +144,7 @@ const Products: React.FC = () => {
                 <img
                   src={p.image}
                   alt={p.imageAlt || p.title}
+                  loading="lazy"
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
                 
