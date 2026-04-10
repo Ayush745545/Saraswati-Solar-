@@ -6,6 +6,7 @@
     height: 100%;
     background-color: #0f172a;
     overflow-x: hidden;
+    top: 0 !important;
   }
   body {
     font-family: 'Inter', sans-serif;
@@ -15,12 +16,23 @@
     background-color: #0f172a;
     overflow-x: hidden;
     width: 100%;
+    position: relative;
   }
   img {
     object-fit: cover;
   }
   /* Hide default Google Translate widgets */
-  .skiptranslate, #google_translate_element, .goog-te-banner-frame, .VIpgJd-ZVi9od-ORHb-OEVmcd {
+  .skiptranslate, 
+  #google_translate_element, 
+  .goog-te-banner-frame, 
+  .goog-te-balloon-frame,
+  .goog-te-gadget-icon,
+  .goog-te-menu-value,
+  .VIpgJd-ZVi9od-ORHb-OEVmcd {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  .goog-te-spinner-pos {
     display: none !important;
   }
 }
