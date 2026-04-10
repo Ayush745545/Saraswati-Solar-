@@ -43,9 +43,9 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           <div className="flex items-center">
             <div className="flex-shrink-0 flex items-center">
               <img 
-                src="/img/ChatGPT Image Feb 1, 2026, 09_55_07 PM.png" 
+                src="/img/logo.png" 
                 alt="Saraswati Solar Logo"
-                className="h-24 w-auto object-contain"
+                className="h-20 w-auto object-contain"
               />
             </div>
           </div>
