@@ -3,9 +3,11 @@ import { Menu, X, Globe } from 'lucide-react';
 
 interface NavbarProps {
   onOpenBooking: () => void;
+  setView: (view: 'home' | 'services' | 'products' | 'contact' | 'subsidies' | 'financing' | 'systems') => void;
+  currentView: 'home' | 'services' | 'products' | 'contact' | 'subsidies' | 'financing' | 'systems';
 }
 
-const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
+const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, setView, currentView }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [lang, setLang] = useState<'en' | 'hi'>('en');
 
@@ -69,12 +71,14 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
   };
 
   const navLinks = [
-    { name: 'Solutions', href: '#services' },
-    { name: 'Products', href: '#products' },
+    { name: 'Solutions', href: '#services', action: () => setView('services'), id: 'services' },
+    { name: 'Solar Systems', href: '#systems', action: () => setView('systems'), id: 'systems' },
+    { name: 'Products', href: '#products', action: () => setView('products'), id: 'products' },
     { name: 'Why Us', href: '#why-us' },
-    { name: 'Subsidies', href: '#incentives' },
+    { name: 'Subsidies', href: '#incentives', action: () => setView('subsidies'), id: 'subsidies' },
+    { name: 'Financing', href: '#financing', action: () => setView('financing'), id: 'financing' },
     { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Contact', href: '#contact', action: () => setView('contact'), id: 'contact' },
   ];
 
   return (
@@ -82,7 +86,10 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center">
-            <div className="flex-shrink-0 flex items-center">
+            <div 
+              className="flex-shrink-0 flex items-center cursor-pointer"
+              onClick={() => setView('home')}
+            >
               <img 
                 src="/img/logo.png" 
                 alt="Saraswati Solar Logo"
@@ -96,14 +103,32 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-slate-600 hover:text-orange-600 font-medium transition-colors"
+                onClick={(e) => {
+                  if (link.action) {
+                    e.preventDefault();
+                    link.action();
+                  } else {
+                    setView('home'); // Switch back to home for other links
+                  }
+                }}
+                className={`text-slate-600 hover:text-brand font-medium transition-colors ${
+                  (link.id === 'services' && currentView === 'services') || 
+                  (link.id === 'systems' && currentView === 'systems') ||
+                  (link.id === 'products' && currentView === 'products') ||
+                  (link.id === 'subsidies' && currentView === 'subsidies') ||
+                  (link.id === 'financing' && currentView === 'financing') ||
+                  (link.id === 'contact' && currentView === 'contact') ||
+                  (link.id !== 'services' && link.id !== 'systems' && link.id !== 'products' && link.id !== 'subsidies' && link.id !== 'financing' && link.id !== 'contact' && currentView === 'home' && window.location.hash === link.href)
+                    ? 'text-brand' 
+                    : ''
+                }`}
               >
                 {link.name}
               </a>
             ))}
             <button
               onClick={toggleLanguage}
-              className="flex items-center space-x-1.5 text-slate-600 hover:text-orange-600 font-medium transition-colors cursor-pointer mr-2"
+              className="flex items-center space-x-1.5 text-slate-600 hover:text-brand font-medium transition-colors cursor-pointer mr-2"
               title="Toggle language Hindi/English"
             >
               <Globe className="h-5 w-5" />
@@ -111,7 +136,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             </button>
             <button
               onClick={onOpenBooking}
-              className="bg-blue-900 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-blue-800 transition-colors shadow-md hover:shadow-lg cursor-pointer"
+              className="bg-brand text-white px-6 py-2.5 rounded-xl font-semibold hover:bg-brand/90 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
             >
               Get Quote
             </button>
@@ -136,8 +161,25 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               <a
                 key={link.name}
                 href={link.href}
-                className="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50"
-                onClick={() => setIsOpen(false)}
+                className={`block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand hover:bg-brand-light/50 ${
+                  (link.id === 'services' && currentView === 'services') || 
+                  (link.id === 'systems' && currentView === 'systems') ||
+                  (link.id === 'products' && currentView === 'products') ||
+                  (link.id === 'subsidies' && currentView === 'subsidies') ||
+                  (link.id === 'financing' && currentView === 'financing') ||
+                  (link.id === 'contact' && currentView === 'contact') 
+                    ? 'text-brand bg-brand-light/50' 
+                    : ''
+                }`}
+                onClick={(e) => {
+                  setIsOpen(false);
+                  if (link.action) {
+                    e.preventDefault();
+                    link.action();
+                  } else {
+                    setView('home');
+                  }
+                }}
               >
                 {link.name}
               </a>
@@ -147,7 +189,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
                 toggleLanguage();
                 setIsOpen(false);
               }}
-              className="flex items-center space-x-2 px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 w-full text-left cursor-pointer"
+              className="flex items-center space-x-2 px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand hover:bg-brand-light/50 w-full text-left cursor-pointer"
             >
               <Globe className="h-5 w-5" />
               <span>{lang === 'en' ? 'Switch to Hindi (हिंदी)' : 'Switch to English'}</span>
@@ -157,7 +199,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
                 setIsOpen(false);
                 onOpenBooking();
               }}
-              className="block w-full text-center mt-4 bg-orange-500 text-white px-4 py-3 rounded-lg font-bold hover:bg-orange-600 transition-colors cursor-pointer"
+              className="block w-full text-center mt-4 bg-brand text-white px-4 py-3 rounded-xl font-bold hover:bg-brand/90 transition-all cursor-pointer shadow-lg"
             >
               Get Free Quote
             </button>

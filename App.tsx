@@ -19,38 +19,61 @@ import Footer from './components/Footer';
 import SavingsCalculator from './components/SavingsCalculator';
 import BookingModal from './components/BookingModal';
 import FloatingCTA from './components/FloatingCTA';
+import ServicesPage from './pages/ServicesPage';
+import ProductsPage from './pages/ProductsPage';
+import ContactPage from './pages/ContactPage';
+import SubsidiesPage from './pages/SubsidiesPage';
+import FinancingPage from './pages/FinancingPage';
+import SystemsPage from './pages/SystemsPage';
 
 const App: React.FC = () => {
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [view, setView] = useState<'home' | 'services' | 'products' | 'contact' | 'subsidies' | 'financing' | 'systems'>('home');
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-900 font-inter w-full overflow-x-hidden">
-      <div className="flex-grow bg-gradient-to-br from-blue-50 via-slate-50 to-blue-100 text-slate-900 relative w-full">
-        <div className="fixed top-0 left-0 w-full h-[150vh] bg-blue-400/10 rounded-full blur-[120px] -translate-x-1/4 -translate-y-1/2 pointer-events-none"></div>
-        <div className="fixed bottom-0 right-0 w-full h-[150vh] bg-orange-400/5 rounded-full blur-[120px] translate-x-1/4 translate-y-1/4 pointer-events-none"></div>
+    <div className="min-h-screen flex flex-col bg-white font-sans w-full overflow-x-hidden">
+      <div className="flex-grow bg-gradient-to-br from-white via-blue-50/30 to-slate-50 relative w-full">
+        <div className="fixed top-0 left-0 w-full h-[150vh] bg-brand/5 rounded-full blur-[120px] -translate-x-1/4 -translate-y-1/2 pointer-events-none"></div>
+        <div className="fixed bottom-0 right-0 w-full h-[150vh] bg-blue-400/5 rounded-full blur-[120px] translate-x-1/4 translate-y-1/4 pointer-events-none"></div>
         
-        <Navbar onOpenBooking={() => setIsBookingOpen(true)} />
+        <Navbar onOpenBooking={() => setIsBookingOpen(true)} setView={setView} currentView={view} />
         
         <main>
-          <Hero 
-            onOpenCalculator={() => setIsCalculatorOpen(true)} 
-            onOpenBooking={() => setIsBookingOpen(true)} 
-          />
-          <WhyUs />
-          <Services onOpenCalculator={() => setIsCalculatorOpen(true)} />
-          <TOPConTechnology />
-          <Products />
-          <Features />
-          <AdaniComparison />
-          <Process />
-          <Incentives />
-          <Gallery />
-          <Testimonials />
-          <LocalSEO />
-          <FAQ />
-          <About />
-          <ContactForm />
+          {view === 'home' ? (
+            <>
+              <Hero 
+                onOpenCalculator={() => setIsCalculatorOpen(true)} 
+                onOpenBooking={() => setIsBookingOpen(true)} 
+              />
+              <WhyUs />
+              <Services onOpenCalculator={() => setIsCalculatorOpen(true)} />
+              <TOPConTechnology />
+              <Products />
+              <Features />
+              <AdaniComparison />
+              <Process />
+              <Incentives />
+              <Gallery />
+              <Testimonials />
+              <LocalSEO />
+              <FAQ />
+              <About />
+              <ContactForm />
+            </>
+          ) : view === 'services' ? (
+            <ServicesPage />
+          ) : view === 'products' ? (
+            <ProductsPage />
+          ) : view === 'contact' ? (
+            <ContactPage />
+          ) : view === 'subsidies' ? (
+            <SubsidiesPage onOpenCalculator={() => setIsCalculatorOpen(true)} />
+          ) : view === 'financing' ? (
+            <FinancingPage onOpenCalculator={() => setIsCalculatorOpen(true)} />
+          ) : (
+            <SystemsPage onOpenBooking={() => setIsBookingOpen(true)} />
+          )}
         </main>
       </div>
       

@@ -1,153 +1,126 @@
 import React from 'react';
-import { CheckCircle2, AlertCircle, Zap } from 'lucide-react';
+import { CheckCircle2, Zap, ArrowRight, Landmark, ShieldCheck } from 'lucide-react';
 
 const Incentives: React.FC = () => {
   const subsidyData = [
-    { size: "1kW On-grid solar system", central: "₹ 30,000", state: "₹ 15,000", total: "₹ 45,000" },
-    { size: "2kW On-grid Solar System", central: "₹ 60,000", state: "₹ 30,000", total: "₹ 90,000" },
-    { size: "3kW or Above", central: "₹ 78,000", state: "₹ 30,000", total: "₹ 1,08,000" },
+    { size: "1kW System", central: "₹30,000", state: "₹15,000", total: "₹45,000" },
+    { size: "2kW System", central: "₹60,000", state: "₹30,000", total: "₹90,000" },
+    { size: "3kW or Above", central: "₹78,000", state: "₹30,000", total: "₹1,08,000" },
   ];
 
   return (
-    <section id="incentives" className="py-20 bg-transparent">
+    <section id="incentives" className="py-24 bg-transparent relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Government Subsidies & Policies</h2>
+        <div className="text-center max-w-3xl mx-auto mb-20 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-light text-brand text-xs font-bold tracking-wider mb-6 uppercase">
+            <Landmark className="w-4 h-4" /> Subsidy Specialist
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+            Government <span className="text-brand">Subsidies</span> & Policies
+          </h2>
           
-          {/* Subsidy Urgency Badge */}
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-3 rounded-full font-bold text-sm md:text-base shadow-lg shadow-green-600/20 mb-6 animate-in zoom-in duration-500">
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-3 rounded-2xl font-bold text-sm md:text-base shadow-lg shadow-green-600/10 mb-8">
             <div className="flex items-center gap-1.5">
-              <div className="w-2.5 h-2.5 rounded-full bg-white animate-pulse"></div>
-              <span className="uppercase tracking-wider text-xs font-black">LIVE</span>
+              <div className="w-2 h-2 rounded-full bg-white animate-pulse"></div>
+              <span className="uppercase tracking-widest text-[10px] font-black">Live</span>
             </div>
             <div className="w-px h-5 bg-white/30"></div>
-            <span>PM Surya Ghar Yojana Phase 2 Active — Apply now for <strong>₹1,08,000</strong> total benefit</span>
+            <span>PM Surya Ghar Phase 2: Get up to <strong className="text-white">₹1,08,000</strong> Benefit</span>
           </div>
 
-          <div className="inline-block bg-blue-600 text-white px-6 py-3 rounded-xl font-bold text-lg md:text-2xl shadow-lg mb-8 animate-in zoom-in duration-500">
-            Residential Rooftop Solar System पर पाएं ₹78,000 तक की Subsidy
-          </div>
-          
-          <p className="text-lg md:text-xl text-slate-700 max-w-4xl mx-auto leading-relaxed font-medium">
+          <p className="text-xl text-slate-500 leading-relaxed font-medium">
             PM Surya Ghar Muft Bijli Yojna का लक्ष्य है 1 करोड़ घरों तक Solar Power पहुँचाना, 
-            जो महीने के <span className="font-bold text-orange-600 bg-orange-50 px-2 py-0.5 rounded">300 units तक Free बिजली</span> का लाभ देगा।
+            जो महीने के <span className="text-brand font-bold underline decoration-brand/30 decoration-2 underline-offset-4">300 units तक Free बिजली</span> का लाभ देगा।
           </p>
         </div>
 
-        {/* Subsidy Table — Desktop */}
-        <div className="hidden md:block overflow-x-auto rounded-xl shadow-xl border border-slate-200 mb-16">
-          <table className="w-full text-left border-collapse min-w-[600px]">
-            <thead>
-              <tr className="bg-gradient-to-r from-red-600 to-red-700 text-white">
-                <th className="p-4 md:p-6 font-bold border-r border-red-500 text-sm md:text-lg w-1/4">Project Size</th>
-                <th className="p-4 md:p-6 font-bold border-r border-red-500 text-sm md:text-lg w-1/4">Central Subsidy</th>
-                <th className="p-4 md:p-6 font-bold border-r border-red-500 text-sm md:text-lg w-1/4">UP State Subsidy*</th>
-                <th className="p-4 md:p-6 font-bold text-sm md:text-lg w-1/4">Max Benefit</th>
-              </tr>
-            </thead>
-            <tbody className="bg-white text-slate-800">
-              {subsidyData.map((row, index) => (
-                <tr key={index} className={`${index < subsidyData.length - 1 ? 'border-b border-slate-100' : ''} hover:bg-slate-50 transition-colors`}>
-                  <td className="p-4 md:p-6 font-semibold border-r border-slate-100">{row.size}</td>
-                  <td className="p-4 md:p-6 border-r border-slate-100 font-medium">{row.central}</td>
-                  <td className="p-4 md:p-6 border-r border-slate-100 font-medium">{row.state}</td>
-                  <td className="p-4 md:p-6 font-extrabold text-green-700 text-lg">{row.total}</td>
+        {/* Subsidy Highlight Card */}
+        <div className="bg-white rounded-[3rem] shadow-[0_30px_70px_rgba(0,0,0,0.04)] border border-slate-50 overflow-hidden mb-16">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left">
+              <thead>
+                <tr className="bg-slate-50/50">
+                  <th className="p-8 font-bold text-slate-400 uppercase tracking-widest text-[10px]">Project Size</th>
+                  <th className="p-8 font-bold text-slate-400 uppercase tracking-widest text-[10px]">Central Subsidy</th>
+                  <th className="p-8 font-bold text-slate-400 uppercase tracking-widest text-[10px]">UP State Subsidy</th>
+                  <th className="p-8 font-bold text-brand uppercase tracking-widest text-[10px] text-right">Max Benefit</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-slate-50">
+                {subsidyData.map((row, index) => (
+                  <tr key={index} className="group hover:bg-brand-light/20 transition-colors">
+                    <td className="p-8 font-bold text-slate-900 text-lg">{row.size}</td>
+                    <td className="p-8 font-semibold text-slate-600">{row.central}</td>
+                    <td className="p-8 font-semibold text-slate-600">{row.state}</td>
+                    <td className="p-8 text-right">
+                       <span className="inline-block bg-brand text-white px-6 py-2 rounded-xl font-bold text-lg shadow-lg shadow-brand/10 group-hover:scale-105 transition-all">
+                        {row.total}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
 
-        {/* Subsidy Cards — Mobile */}
-        <div className="md:hidden space-y-4 mb-16">
-          {subsidyData.map((row, index) => (
-            <div key={index} className="bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
-              {/* Card Header */}
-              <div className="bg-gradient-to-r from-red-600 to-red-700 text-white px-5 py-4 flex items-center justify-between">
-                <h3 className="font-bold text-lg">{row.size}</h3>
-                <Zap className="w-5 h-5 text-orange-300" />
-              </div>
-              {/* Card Body */}
-              <div className="p-5 space-y-3">
-                <div className="flex items-center justify-between py-2 border-b border-slate-100">
-                  <span className="text-slate-500 text-sm font-medium">Central Subsidy</span>
-                  <span className="text-slate-900 font-bold">{row.central}</span>
-                </div>
-                <div className="flex items-center justify-between py-2 border-b border-slate-100">
-                  <span className="text-slate-500 text-sm font-medium">UP State Subsidy*</span>
-                  <span className="text-slate-900 font-bold">{row.state}</span>
-                </div>
-                <div className="flex items-center justify-between py-3 bg-green-50 -mx-5 px-5 rounded-b-xl">
-                  <span className="text-green-800 text-sm font-bold uppercase tracking-wider">Max Benefit</span>
-                  <span className="text-green-700 font-extrabold text-xl">{row.total}</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
-          
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {/* Steps to Claim */}
-          <div className="bg-blue-50 rounded-2xl p-8 border border-blue-100 flex flex-col h-full shadow-md">
-            <h3 className="text-2xl font-bold text-white mb-8 bg-blue-600 px-6 py-3 rounded-lg inline-block self-start shadow-md">
-              3 Simple Steps to Claim Subsidy
+          <div className="bg-white rounded-[2.5rem] p-10 border border-slate-50 shadow-sm flex flex-col h-full group">
+            <h3 className="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+              <Zap className="w-6 h-6 text-brand" /> 3 Steps to Claim
             </h3>
-            <ul className="space-y-8 flex-1">
+            <ul className="space-y-6 flex-1">
               <li className="flex gap-4 items-start">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white border-2 border-blue-600 text-blue-700 font-bold text-lg flex items-center justify-center shadow-sm">1</div>
+                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-brand-light text-brand font-bold text-lg flex items-center justify-center border border-brand/5">1</div>
                 <div>
-                  <p className="text-slate-800 font-semibold text-lg">Submit Application</p>
-                  <p className="text-slate-600 text-sm mt-1">Submit your application online on the national portal of Rooftop Solar.</p>
+                  <p className="text-slate-900 font-bold text-lg">Submit Application</p>
+                  <p className="text-slate-500 text-sm mt-1">Submit your application online on the national portal of Rooftop Solar.</p>
                 </div>
               </li>
               <li className="flex gap-4 items-start">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white border-2 border-blue-600 text-blue-700 font-bold text-lg flex items-center justify-center shadow-sm">2</div>
+                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-brand-light text-brand font-bold text-lg flex items-center justify-center border border-brand/5">2</div>
                 <div>
-                  <p className="text-slate-800 font-semibold text-lg">Choose Vendor</p>
-                  <p className="text-slate-600 text-sm mt-1">Choose a suitable vendor (Select <span className="font-bold text-blue-700">Saraswati Solar</span>).</p>
+                  <p className="text-slate-900 font-bold text-lg">Choose Vendor</p>
+                  <p className="text-slate-500 text-sm mt-1">Select <span className="font-bold text-brand">Saraswati Solar</span> as your trusted installer.</p>
                 </div>
               </li>
               <li className="flex gap-4 items-start">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white border-2 border-blue-600 text-blue-700 font-bold text-lg flex items-center justify-center shadow-sm">3</div>
+                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-brand-light text-brand font-bold text-lg flex items-center justify-center border border-brand/5">3</div>
                 <div>
-                  <p className="text-slate-800 font-semibold text-lg">Receive Subsidy</p>
-                  <p className="text-slate-600 text-sm mt-1">Wait till you get the applicable subsidy amount directly in your bank account.</p>
+                  <p className="text-slate-900 font-bold text-lg">Receive Subsidy</p>
+                  <p className="text-slate-500 text-sm mt-1">The subsidy amount is credited directly to your bank account after commissioning.</p>
                 </div>
               </li>
             </ul>
           </div>
 
-          {/* Terms & Conditions */}
-          <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-lg flex flex-col h-full">
-            <h3 className="text-2xl font-bold text-white mb-8 bg-blue-600 px-6 py-3 rounded-lg inline-block self-start shadow-md">
-              Terms and Conditions
-            </h3>
+          {/* Guarantee Section */}
+          <div className="bg-slate-900 rounded-[2.5rem] p-10 text-white shadow-xl flex flex-col h-full relative overflow-hidden">
+            <ShieldCheck className="absolute top-6 right-6 w-16 h-16 text-white/5 -rotate-12" />
+            <h3 className="text-2xl font-bold mb-8">Eligibility & Terms</h3>
             <ul className="space-y-6 flex-1">
-              <li className="flex items-start gap-4 p-4 bg-slate-50 rounded-xl">
-                <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
-                <span className="text-slate-700 font-medium">Only <strong>residential rooftop solar panel</strong> systems are eligible.</span>
+              <li className="flex items-start gap-4">
+                <CheckCircle2 className="w-6 h-6 text-brand flex-shrink-0 mt-0.5" />
+                <span className="text-white/80 font-medium leading-relaxed">Only <strong>residential rooftop solar</strong> systems are eligible for subsidy.</span>
               </li>
-              <li className="flex items-start gap-4 p-4 bg-slate-50 rounded-xl">
-                <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
-                <span className="text-slate-700 font-medium">Only <strong>On-grid and Hybrid</strong> solar systems are eligible.</span>
+              <li className="flex items-start gap-4">
+                <CheckCircle2 className="w-6 h-6 text-brand flex-shrink-0 mt-0.5" />
+                <span className="text-white/80 font-medium leading-relaxed">Systems up to <strong>10kW</strong> are covered under the scheme.</span>
               </li>
-              <li className="flex items-start gap-4 p-4 bg-slate-50 rounded-xl">
-                <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
-                <span className="text-slate-700 font-medium">No subsidy is applicable for systems larger than 10kW.</span>
+              <li className="flex items-start gap-4">
+                <CheckCircle2 className="w-6 h-6 text-brand flex-shrink-0 mt-0.5" />
+                <span className="text-white/80 font-medium leading-relaxed">Direct benefit transfer ensures no middleman involvement.</span>
               </li>
             </ul>
             
-            <div className="mt-8 p-4 bg-orange-50 rounded-lg border border-orange-100 flex items-start gap-2">
-                <AlertCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
-                <p className="text-sm text-orange-800 italic">
-                   *UP State Subsidy is subject to availability of state funds and specific approval. Amounts listed are maximum potential benefits.
-                </p>
-            </div>
+            <button className="mt-10 flex items-center justify-center gap-2 bg-white text-slate-900 w-full py-4 rounded-2xl font-bold hover:bg-brand hover:text-white transition-all group">
+              Learn More About Subsidies
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
           </div>
-
         </div>
       </div>
     </section>

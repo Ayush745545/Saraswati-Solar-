@@ -18,15 +18,15 @@ const Services: React.FC<ServicesProps> = ({ onOpenCalculator }) => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
           {/* Residential Card */}
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100 transform hover:-translate-y-1 transition-transform duration-300 flex flex-col">
-            <div className="bg-blue-900 p-6 text-white relative overflow-hidden">
-              <div className="absolute top-0 right-0 -mt-4 -mr-4 bg-orange-500 w-24 h-24 rounded-full opacity-20 blur-xl"></div>
+          <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-brand/10 transform hover:-translate-y-2 transition-all duration-300 flex flex-col">
+            <div className="bg-brand p-8 text-white relative overflow-hidden">
+              <div className="absolute top-0 right-0 -mt-4 -mr-4 bg-white/10 w-32 h-32 rounded-full blur-2xl"></div>
               <div className="flex justify-between items-start relative z-10">
                 <div>
                   <h3 className="text-2xl font-bold">3 kW On-Grid System</h3>
-                  <p className="text-blue-200 text-sm mt-1">Most Popular for Homes</p>
+                  <p className="text-brand-light/80 text-sm mt-1">Most Popular for Homes</p>
                 </div>
-                <Zap className="w-8 h-8 text-orange-400" />
+                <Zap className="w-8 h-8 text-white/90" />
               </div>
             </div>
             
@@ -41,33 +41,33 @@ const Services: React.FC<ServicesProps> = ({ onOpenCalculator }) => {
 
               <ul className="space-y-4 mb-8 flex-1">
                 <li className="flex items-start">
-                  <CheckCircle2 className="h-5 w-5 text-blue-600 mr-3 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-5 w-5 text-brand mr-3 flex-shrink-0 mt-0.5" />
                   <span className="text-slate-700">Complete Adani Solar Kit</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle2 className="h-5 w-5 text-blue-600 mr-3 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-5 w-5 text-brand mr-3 flex-shrink-0 mt-0.5" />
                   <span className="text-slate-700">Net Metering Included</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle2 className="h-5 w-5 text-blue-600 mr-3 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-5 w-5 text-brand mr-3 flex-shrink-0 mt-0.5" />
                   <span className="text-slate-700">Mobile App Monitoring</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle2 className="h-5 w-5 text-blue-600 mr-3 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-5 w-5 text-brand mr-3 flex-shrink-0 mt-0.5" />
                   <span className="text-slate-700">Installation & Commissioning</span>
                 </li>
               </ul>
 
-              <div className="space-y-3 mt-auto">
+              <div className="space-y-4 mt-auto">
                 <a 
                   href="#contact"
-                  className="block w-full text-center bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-4 rounded-lg transition-colors"
+                  className="block w-full text-center bg-brand hover:bg-brand/90 text-white font-bold py-4 px-4 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-[0.98]"
                 >
                   Book Now
                 </a>
                 <button
                   onClick={onOpenCalculator}
-                  className="w-full flex items-center justify-center gap-2 bg-white border-2 border-slate-200 hover:border-blue-600 hover:text-blue-600 text-slate-700 font-bold py-3 px-4 rounded-lg transition-all"
+                  className="w-full flex items-center justify-center gap-2 bg-white border-2 border-brand/20 hover:border-brand text-brand font-bold py-4 px-4 rounded-xl transition-all"
                 >
                   <Calculator className="w-4 h-4" />
                   Calculate Savings
@@ -77,15 +77,15 @@ const Services: React.FC<ServicesProps> = ({ onOpenCalculator }) => {
           </div>
 
           {/* Commercial Card */}
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100 transform hover:-translate-y-1 transition-transform duration-300 flex flex-col">
-            <div className="bg-slate-800 p-6 text-white relative overflow-hidden">
-              <div className="absolute top-0 right-0 -mt-4 -mr-4 bg-blue-500 w-24 h-24 rounded-full opacity-20 blur-xl"></div>
+          <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100 transform hover:-translate-y-2 transition-all duration-300 flex flex-col">
+            <div className="bg-slate-900 p-8 text-white relative overflow-hidden">
+              <div className="absolute top-0 right-0 -mt-4 -mr-4 bg-brand/30 w-32 h-32 rounded-full blur-2xl"></div>
               <div className="flex justify-between items-start relative z-10">
                 <div>
                   <h3 className="text-2xl font-bold">10 kW Commercial</h3>
-                  <p className="text-slate-300 text-sm mt-1">Schools, Offices & Factories</p>
+                  <p className="text-slate-400 text-sm mt-1">Schools, Offices & Factories</p>
                 </div>
-                <Factory className="w-8 h-8 text-blue-400" />
+                <Factory className="w-8 h-8 text-brand" />
               </div>
             </div>
             
@@ -116,10 +116,10 @@ const Services: React.FC<ServicesProps> = ({ onOpenCalculator }) => {
                 </li>
               </ul>
 
-              <div className="space-y-3 mt-auto">
+              <div className="space-y-4 mt-auto">
                 <a 
                   href="#contact"
-                  className="block w-full text-center bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-4 rounded-lg transition-colors"
+                  className="block w-full text-center bg-slate-900 hover:bg-black text-white font-bold py-4 px-4 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-[0.98]"
                 >
                   Request Site Survey
                 </a>

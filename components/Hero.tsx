@@ -21,19 +21,36 @@ const Hero: React.FC<HeroProps> = ({ onOpenCalculator, onOpenBooking }) => {
 
           {/* Left Content */}
           <div className="z-10 animate-in fade-in slide-in-from-bottom-8 duration-700 order-2 lg:order-1">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-xs font-bold tracking-wider mb-6 border border-orange-200 uppercase">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-light text-brand text-sm font-semibold mb-8 border border-brand/10">
               <ShieldCheck className="w-4 h-4" />
-              AUTHORIZED PARTNER • TALHERI BUZURG
+              PM Suryaghar Yojana Authorized Partner
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-black text-slate-900 tracking-tight leading-[1.1] mb-6">
-              #1 Solar Panel Installation in <span className="text-blue-600">Saharanpur</span> | Saraswati Solar
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight leading-[1.05] mb-8">
+              Powering Homes with <br />
+              <span className="text-brand">Clean Solar Energy</span>
             </h1>
 
-            <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-              We are Saharanpur's authorized rooftop solar partner (MNRE approved).
-              Save big on electricity bills with premium Adani Solar panels and PM Surya Ghar Yojana subsidies.
+            <p className="text-xl text-slate-500 mb-12 leading-relaxed max-w-xl">
+              Leading solar installation company in Uttar Pradesh. Get affordable
+              solar panels with PM Suryaghar Yojana subsidy. Expert installation
+              across 15+ branches.
             </p>
+
+            <div className="grid grid-cols-3 gap-8 mb-12">
+              <div>
+                <p className="text-4xl font-bold text-brand mb-1">334+</p>
+                <p className="text-sm text-slate-500 font-medium">Happy Customers</p>
+              </div>
+              <div>
+                <p className="text-4xl font-bold text-brand mb-1">15+</p>
+                <p className="text-sm text-slate-500 font-medium">Branches</p>
+              </div>
+              <div>
+                <p className="text-4xl font-bold text-brand mb-1">100%</p>
+                <p className="text-sm text-slate-500 font-medium">Satisfaction</p>
+              </div>
+            </div>
 
             {/* Solar House Illustration - Centered above pricing cards */}
             <div className="flex justify-center items-end mb-6">
@@ -110,21 +127,31 @@ const Hero: React.FC<HeroProps> = ({ onOpenCalculator, onOpenBooking }) => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-5 mb-12">
               <button
-                onClick={onOpenCalculator}
-                className="flex items-center justify-center gap-2 bg-[#f97316] hover:bg-orange-600 text-white text-lg font-bold py-4 px-8 rounded-lg shadow-lg shadow-orange-500/30 transition-all transform hover:-translate-y-1"
+                onClick={onOpenBooking}
+                className="flex items-center justify-center gap-2 bg-brand hover:bg-brand/90 text-white text-xl font-bold py-5 px-10 rounded-xl shadow-xl shadow-brand/20 transition-all transform hover:-translate-y-1 active:scale-[0.98]"
               >
-                <Calculator className="w-5 h-5" />
-                Calculate Savings
+                Get Free Quote
+                <ArrowRight className="w-6 h-6" />
               </button>
               <a
                 href="#services"
-                className="flex items-center justify-center gap-2 bg-white border-2 border-slate-200 hover:border-blue-900 text-slate-700 hover:text-blue-900 text-lg font-bold py-4 px-8 rounded-lg transition-all"
+                className="flex items-center justify-center gap-2 bg-white border-2 border-brand text-brand text-xl font-bold py-5 px-10 rounded-xl hover:bg-brand-light transition-all transform hover:-translate-y-1"
               >
-                View Solutions
-                <ArrowRight className="w-5 h-5" />
+                Our Services
               </a>
+            </div>
+
+            <div className="flex items-center gap-8">
+              <div className="flex items-center gap-2 text-slate-500 font-medium">
+                <ShieldCheck className="w-5 h-5 text-brand" />
+                5 Year Warranty
+              </div>
+              <div className="flex items-center gap-2 text-slate-500 font-medium">
+                <Zap className="w-5 h-5 text-brand" />
+                Expert Installation
+              </div>
             </div>
           </div>
 

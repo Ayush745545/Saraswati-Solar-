@@ -4,16 +4,17 @@
   html {
     scroll-behavior: smooth;
     height: 100%;
-    background-color: #0f172a;
+    background-color: #ffffff;
     overflow-x: hidden;
     top: 0 !important;
   }
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Outfit', sans-serif;
     top: 0 !important;
     margin: 0;
     min-height: 100%;
-    background-color: #0f172a;
+    background-color: #ffffff;
+    color: #0f172a;
     overflow-x: hidden;
     width: 100%;
     position: relative;
@@ -38,6 +39,8 @@
 }
 
 @theme {
-  --font-inter: "Inter", sans-serif;
+  --font-sans: "Outfit", sans-serif;
+  --color-brand: #2d66f6;
+  --color-brand-light: #eff6ff;
   --animate-bounce-slow: bounce 3s linear infinite;
 }

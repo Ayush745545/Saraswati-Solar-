@@ -60,7 +60,7 @@ const Features: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-bold tracking-wider mb-4 uppercase">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-light text-brand text-xs font-bold tracking-wider mb-4 uppercase">
             <ShieldCheck className="w-4 h-4" /> Why Choose Saraswati Solar?
           </div>
           <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">
@@ -93,7 +93,7 @@ const Features: React.FC = () => {
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-700 transition-colors">
+              <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-brand transition-colors">
                 {feature.title}
               </h3>
               <p className="text-slate-600 leading-relaxed text-sm flex-1 mb-8">
@@ -114,19 +114,19 @@ const Features: React.FC = () => {
           ))}
 
           {/* Contact / Action Card inside grid */}
-          <div className="bg-blue-900 rounded-2xl p-8 shadow-sm border border-blue-800 flex flex-col justify-center items-center text-center relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-48 h-48 bg-orange-500/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+          <div className="bg-brand rounded-3xl p-8 shadow-xl border border-brand flex flex-col justify-center items-center text-center relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
             <div className="relative z-10">
-              <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <ShieldCheck className="w-8 h-8 text-orange-400" />
+              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <ShieldCheck className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">Ready to Go Solar?</h3>
-              <p className="text-blue-200 text-sm mb-8 px-4">
+              <p className="text-brand-light/80 text-sm mb-8 px-4">
                 Book a free site survey in Saharanpur & get a custom quote today.
               </p>
               <a 
                 href="#contact" 
-                className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-3.5 px-8 rounded-xl transition-colors shadow-lg hover:shadow-orange-500/25"
+                className="inline-block bg-white text-brand hover:bg-brand-light font-bold py-4 px-10 rounded-xl transition-all shadow-lg hover:shadow-white/20 active:scale-[0.98]"
               >
                 Free Consultation
               </a>

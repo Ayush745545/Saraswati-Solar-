@@ -24,9 +24,9 @@ const Footer: React.FC = () => {
           {/* Brand Column */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <Sun className="h-8 w-8 text-orange-500" />
+              <Sun className="h-8 w-8 text-brand" />
               <div className="flex flex-col">
-                <span className="font-bold text-xl leading-none text-white tracking-tight underline decoration-orange-500/30">SARASWATI SOLAR</span>
+                <span className="font-bold text-xl leading-none text-white tracking-tight underline decoration-brand/30">SARASWATI SOLAR</span>
                 <span className="text-[10px] font-medium text-slate-400 tracking-[0.2em] uppercase">Power Solution</span>
               </div>
             </div>
@@ -34,42 +34,42 @@ const Footer: React.FC = () => {
               Saharanpur's premier Adani Solar EPC partner. We provide complete rooftop solar solutions with end-to-end subsidy support.
             </p>
             <div className="flex space-x-5">
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-orange-600 hover:text-white transition-all shadow-lg"><Facebook className="w-5 h-5" /></a>
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-orange-600 hover:text-white transition-all shadow-lg"><Instagram className="w-5 h-5" /></a>
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-orange-600 hover:text-white transition-all shadow-lg"><Twitter className="w-5 h-5" /></a>
+              <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-brand hover:text-white transition-all shadow-lg"><Facebook className="w-5 h-5" /></a>
+              <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-brand hover:text-white transition-all shadow-lg"><Instagram className="w-5 h-5" /></a>
+              <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-brand hover:text-white transition-all shadow-lg"><Twitter className="w-5 h-5" /></a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="lg:pl-8">
-            <h3 className="text-white font-bold text-lg mb-6 border-b border-orange-500/20 pb-2 inline-block">Quick Links</h3>
+            <h3 className="text-white font-bold text-lg mb-6 border-b border-brand/20 pb-2 inline-block">Quick Links</h3>
             <ul className="space-y-4 text-sm font-medium">
-              <li><a href="#about" className="hover:text-orange-400 transition-colors flex items-center gap-2"><ArrowRight className="w-3 h-3 text-orange-500" /> Our Story</a></li>
-              <li><a href="#services" className="hover:text-orange-400 transition-colors flex items-center gap-2"><ArrowRight className="w-3 h-3 text-orange-500" /> Expert Solutions</a></li>
-              <li><a href="#contact" className="hover:text-orange-400 transition-colors flex items-center gap-2"><ArrowRight className="w-3 h-3 text-orange-500" /> Free Estimator</a></li>
-              <li><a href="#incentives" className="hover:text-orange-400 transition-colors flex items-center gap-2"><ArrowRight className="w-3 h-3 text-orange-500" /> Subsidy Guide</a></li>
+              <li><a href="#about" className="hover:text-brand transition-colors flex items-center gap-2"><ArrowRight className="w-3 h-3 text-brand" /> Our Story</a></li>
+              <li><a href="#services" className="hover:text-brand transition-colors flex items-center gap-2"><ArrowRight className="w-3 h-3 text-brand" /> Expert Solutions</a></li>
+              <li><a href="#contact" className="hover:text-brand transition-colors flex items-center gap-2"><ArrowRight className="w-3 h-3 text-brand" /> Free Estimator</a></li>
+              <li><a href="#incentives" className="hover:text-brand transition-colors flex items-center gap-2"><ArrowRight className="w-3 h-3 text-brand" /> Subsidy Guide</a></li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-6 border-b border-orange-500/20 pb-2 inline-block">Contact Us</h3>
+            <h3 className="text-white font-bold text-lg mb-6 border-b border-brand/20 pb-2 inline-block">Contact Us</h3>
             <ul className="space-y-5 text-sm">
               <li className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-5 h-5 text-orange-500" />
+                <div className="w-10 h-10 rounded-lg bg-brand/10 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5 text-brand" />
                 </div>
                 <span className="pt-1">Regional Center, Talheri Buzurg,<br />Saharanpur, UP 247554</span>
               </li>
               <li className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-5 h-5 text-orange-500" />
+                <div className="w-10 h-10 rounded-lg bg-brand/10 flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-5 h-5 text-brand" />
                 </div>
                 <span className="font-bold text-white">+91 98971 47441</span>
               </li>
               <li className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-5 h-5 text-orange-500" />
+                <div className="w-10 h-10 rounded-lg bg-brand/10 flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-5 h-5 text-brand" />
                 </div>
                 <span className="hover:text-white transition-colors">help@upsolarexpert.com</span>
               </li>
@@ -78,7 +78,7 @@ const Footer: React.FC = () => {
 
           {/* Service Area Map */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-6 border-b border-orange-500/20 pb-2 inline-block">Service Area</h3>
+            <h3 className="text-white font-bold text-lg mb-6 border-b border-brand/20 pb-2 inline-block">Service Area</h3>
             <div className="w-full h-44 bg-slate-950 rounded-xl overflow-hidden border border-slate-800 shadow-2xl relative">
               <ServiceMap />
               <div className="absolute bottom-2 right-2 z-20 bg-slate-900/90 backdrop-blur-md px-2 py-1 rounded text-[10px] text-slate-400 border border-slate-700">
@@ -93,8 +93,8 @@ const Footer: React.FC = () => {
             &copy; {new Date().getFullYear()} Saraswati Solar Power Solution. All rights reserved.
           </p>
           <div className="mt-4 flex justify-center gap-6 text-[10px] text-slate-600 uppercase tracking-widest font-bold">
-            <a href="#" className="hover:text-orange-500 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-orange-500 transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-brand transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-brand transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>
