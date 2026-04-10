@@ -16,6 +16,9 @@
     overflow-x: hidden;
     width: 100%;
   }
+  img {
+    object-fit: cover;
+  }
   /* Hide default Google Translate widgets */
   .skiptranslate, #google_translate_element, .goog-te-banner-frame, .VIpgJd-ZVi9od-ORHb-OEVmcd {
     display: none !important;
