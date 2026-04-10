@@ -76,7 +76,7 @@ const About: React.FC = () => {
               <div className="col-span-2 rounded-3xl overflow-hidden shadow-xl h-64 border-4 border-white">
                 <img 
                   src="/img/hero-solar-installation.jpg" 
-                  alt="Saraswati Solar Installation Team working on a rooftop" 
+                  alt="Saraswati Solar expert team installing premium Adani panels in Saharanpur district" 
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />

@@ -143,7 +143,7 @@ const Products: React.FC = () => {
               <div className="relative overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100 aspect-[4/3]">
                 <img
                   src={p.image}
-                  alt={p.imageAlt || p.title}
+                  alt={`Saraswati Solar Product: ${p.title} - ${p.desc} for homes in Saharanpur`}
                   loading="lazy"
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />

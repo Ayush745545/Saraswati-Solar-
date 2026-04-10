@@ -27,7 +27,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenCalculator, onOpenBooking }) => {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-black text-slate-900 tracking-tight leading-[1.1] mb-6">
-              Switch to Solar with <span className="text-blue-600">Saraswati Solar</span> Power Solution
+              #1 Solar Panel Installation in <span className="text-blue-600">Saharanpur</span> | Saraswati Solar
             </h1>
 
             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
@@ -40,7 +40,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenCalculator, onOpenBooking }) => {
               <div className="relative flex flex-col items-center w-full max-w-xs">
                 <img
                   src="/img/ChatGPT Image Jan 18, 2026, 11_24_25 AM.png"
-                  alt="Solar house and person illustration"
+                  alt="Authorized Adani Solar partner rooftop installation in Saharanpur"
                   className="w-full h-auto object-contain"
                   width="320"
                   height="180"
