@@ -12,14 +12,13 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
   useEffect(() => {
     // Check google translate cookie to set initial button state
     const getCookie = (name: string) => {
-      const value = `; ${document.cookie}`;
-      const parts = value.split(`; ${name}=`);
-      if (parts.length === 2) return parts.pop()?.split(';').shift();
-      return null;
+      const match = document.cookie.match(new RegExp('(^|; )' + name + '=([^;]*)'));
+      return match ? match[2] : null;
     };
 
     const googtrans = getCookie('googtrans');
-    if (googtrans === '/en/hi') {
+    // Google translate cookie can be /en/hi or /auto/hi depending on setup
+    if (googtrans && (googtrans.includes('/hi') || googtrans.includes('hi'))) {
       setLang('hi');
     } else {
       setLang('en');
@@ -30,11 +29,17 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
     const newLang = lang === 'en' ? 'hi' : 'en';
     const cookieValue = `/en/${newLang}`;
     
-    // Clear existing cookies first to avoid conflicts
-    const domains = [window.location.hostname, `.${window.location.hostname}`];
-    const hostParts = window.location.hostname.split('.');
-    if (hostParts.length > 2) {
-      domains.push(`.${hostParts.slice(-2).join('.')}`);
+    // Clear existing cookies
+    const host = window.location.hostname;
+    const isLocalhost = host === 'localhost' || host === '127.0.0.1' || host.includes('192.168.');
+    
+    // Domains to clear
+    const domains = [host, `.${host}`];
+    if (!isLocalhost && host.includes('.')) {
+      const parts = host.split('.');
+      if (parts.length > 2) {
+        domains.push(`.${parts.slice(-2).join('.')}`);
+      }
     }
 
     domains.forEach(domain => {
@@ -43,13 +48,24 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
     });
 
     // Set the new cookie
-    document.cookie = `googtrans=${cookieValue}; path=/`;
-    document.cookie = `googtrans=${cookieValue}; domain=${window.location.hostname}; path=/`;
+    // For localhost, we MUST NOT set the domain or it might be ignored
+    if (isLocalhost) {
+      document.cookie = `googtrans=${cookieValue}; path=/`;
+    } else {
+      document.cookie = `googtrans=${cookieValue}; path=/`;
+      document.cookie = `googtrans=${cookieValue}; domain=${host}; path=/`;
+      // Also try base domain for maximum coverage
+      const hostParts = host.split('.');
+      if (hostParts.length > 2) {
+        const baseDomain = hostParts.slice(-2).join('.');
+        document.cookie = `googtrans=${cookieValue}; domain=.${baseDomain}; path=/`;
+      }
+    }
     
-    // Final attempt without domain for maximum compatibility
+    // Reload to apply changes
     setTimeout(() => {
       window.location.reload();
-    }, 100);
+    }, 150);
   };
 
   const navLinks = [
