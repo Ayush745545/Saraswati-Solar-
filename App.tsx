@@ -24,12 +24,17 @@ import ProductsPage from './pages/ProductsPage';
 import ContactPage from './pages/ContactPage';
 import SubsidiesPage from './pages/SubsidiesPage';
 import FinancingPage from './pages/FinancingPage';
+import CalculatorsPage from './pages/CalculatorsPage';
 import SystemsPage from './pages/SystemsPage';
 
 const App: React.FC = () => {
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [view, setView] = useState<'home' | 'services' | 'products' | 'contact' | 'subsidies' | 'financing' | 'systems'>('home');
+  const [view, setView] = useState<'home' | 'services' | 'products' | 'contact' | 'subsidies' | 'financing' | 'systems' | 'calculators'>('home');
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [view]);
 
   return (
     <div className="min-h-screen flex flex-col bg-white font-sans w-full overflow-x-hidden">
@@ -62,15 +67,23 @@ const App: React.FC = () => {
               <ContactForm />
             </>
           ) : view === 'services' ? (
-            <ServicesPage />
+            <ServicesPage 
+              onOpenCalculator={() => setIsCalculatorOpen(true)} 
+              onOpenBooking={() => setIsBookingOpen(true)} 
+            />
           ) : view === 'products' ? (
-            <ProductsPage />
+            <ProductsPage 
+              onOpenCalculator={() => setIsCalculatorOpen(true)} 
+              onOpenBooking={() => setIsBookingOpen(true)} 
+            />
           ) : view === 'contact' ? (
             <ContactPage />
           ) : view === 'subsidies' ? (
             <SubsidiesPage onOpenCalculator={() => setIsCalculatorOpen(true)} />
           ) : view === 'financing' ? (
             <FinancingPage onOpenCalculator={() => setIsCalculatorOpen(true)} />
+          ) : view === 'calculators' ? (
+            <CalculatorsPage onOpenBooking={() => setIsBookingOpen(true)} />
           ) : (
             <SystemsPage onOpenBooking={() => setIsBookingOpen(true)} />
           )}

@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Package, Search, ArrowRight, ShieldCheck } from 'lucide-react';
 
-const ProductsPage: React.FC = () => {
+interface ProductsPageProps {
+  onOpenBooking: () => void;
+}
+
+const ProductsPage: React.FC<ProductsPageProps> = ({ onOpenBooking }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const products = [
@@ -133,7 +137,10 @@ const ProductsPage: React.FC = () => {
 
                 {/* Hover Overlay */}
                 <div className={`absolute inset-0 bg-brand/5 backdrop-blur-[2px] flex items-center justify-center transition-opacity duration-300 ${hoveredIndex === index ? 'opacity-100' : 'opacity-0'}`}>
-                  <button className="bg-brand text-white font-bold px-6 py-3 rounded-xl shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 text-sm hover:bg-brand/90">
+                  <button 
+                    onClick={onOpenBooking}
+                    className="bg-brand text-white font-bold px-6 py-3 rounded-xl shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 text-sm hover:bg-brand/90"
+                  >
                     Get Quote
                   </button>
                 </div>
@@ -153,7 +160,10 @@ const ProductsPage: React.FC = () => {
                   <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest bg-slate-50 px-2.5 py-1.5 rounded-lg">
                     {p.sku}
                   </span>
-                  <button className="flex items-center gap-1.5 text-brand font-bold text-sm hover:gap-2.5 transition-all">
+                  <button 
+                    onClick={onOpenBooking}
+                    className="flex items-center gap-1.5 text-brand font-bold text-sm hover:gap-2.5 transition-all"
+                  >
                     Enquire
                     <ArrowRight className="w-4 h-4" />
                   </button>

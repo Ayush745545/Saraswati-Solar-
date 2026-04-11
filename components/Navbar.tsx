@@ -3,8 +3,8 @@ import { Menu, X, Globe } from 'lucide-react';
 
 interface NavbarProps {
   onOpenBooking: () => void;
-  setView: (view: 'home' | 'services' | 'products' | 'contact' | 'subsidies' | 'financing' | 'systems') => void;
-  currentView: 'home' | 'services' | 'products' | 'contact' | 'subsidies' | 'financing' | 'systems';
+  setView: (view: 'home' | 'services' | 'products' | 'contact' | 'subsidies' | 'financing' | 'systems' | 'calculators') => void;
+  currentView: 'home' | 'services' | 'products' | 'contact' | 'subsidies' | 'financing' | 'systems' | 'calculators';
 }
 
 const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, setView, currentView }) => {
@@ -77,6 +77,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, setView, currentView }) 
     { name: 'Why Us', href: '#why-us' },
     { name: 'Subsidies', href: '#incentives', action: () => setView('subsidies'), id: 'subsidies' },
     { name: 'Financing', href: '#financing', action: () => setView('financing'), id: 'financing' },
+    { name: 'Calculators', href: '#calculators', action: () => setView('calculators'), id: 'calculators' },
     { name: 'About', href: '#about' },
     { name: 'Contact', href: '#contact', action: () => setView('contact'), id: 'contact' },
   ];
@@ -115,10 +116,11 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, setView, currentView }) 
                   (link.id === 'services' && currentView === 'services') || 
                   (link.id === 'systems' && currentView === 'systems') ||
                   (link.id === 'products' && currentView === 'products') ||
-                  (link.id === 'subsidies' && currentView === 'subsidies') ||
+                  (link.id === 'subsidies' && currentView === 'subsidies') || 
                   (link.id === 'financing' && currentView === 'financing') ||
+                  (link.id === 'calculators' && currentView === 'calculators') ||
                   (link.id === 'contact' && currentView === 'contact') ||
-                  (link.id !== 'services' && link.id !== 'systems' && link.id !== 'products' && link.id !== 'subsidies' && link.id !== 'financing' && link.id !== 'contact' && currentView === 'home' && window.location.hash === link.href)
+                  (link.id !== 'services' && link.id !== 'systems' && link.id !== 'products' && link.id !== 'subsidies' && link.id !== 'financing' && link.id !== 'calculators' && link.id !== 'contact' && currentView === 'home' && window.location.hash === link.href)
                     ? 'text-brand' 
                     : ''
                 }`}
@@ -165,8 +167,9 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, setView, currentView }) 
                   (link.id === 'services' && currentView === 'services') || 
                   (link.id === 'systems' && currentView === 'systems') ||
                   (link.id === 'products' && currentView === 'products') ||
-                  (link.id === 'subsidies' && currentView === 'subsidies') ||
+                  (link.id === 'subsidies' && currentView === 'subsidies') || 
                   (link.id === 'financing' && currentView === 'financing') ||
+                  (link.id === 'calculators' && currentView === 'calculators') ||
                   (link.id === 'contact' && currentView === 'contact') 
                     ? 'text-brand bg-brand-light/50' 
                     : ''
