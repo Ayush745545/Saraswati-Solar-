@@ -1,11 +1,12 @@
 import React from 'react';
-import { Zap, CheckCircle2, Factory, Calculator } from 'lucide-react';
+import { Zap, CheckCircle2, Factory, Calculator, ArrowRight, Sun, ShieldCheck } from 'lucide-react';
 
 interface ServicesProps {
   onOpenCalculator: () => void;
+  onOpenBooking?: () => void;
 }
 
-const Services: React.FC<ServicesProps> = ({ onOpenCalculator }) => {
+const Services: React.FC<ServicesProps> = ({ onOpenCalculator, onOpenBooking }) => {
   return (
     <section id="services" className="py-20 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,15 +60,15 @@ const Services: React.FC<ServicesProps> = ({ onOpenCalculator }) => {
               </ul>
 
               <div className="space-y-4 mt-auto">
-                <a 
-                  href="#contact"
-                  className="block w-full text-center bg-brand hover:bg-brand/90 text-white font-bold py-4 px-4 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-[0.98]"
+                <button 
+                  onClick={onOpenBooking}
+                  className="block w-full text-center bg-brand hover:bg-brand/90 text-white font-bold py-4 px-4 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-[0.98] cursor-pointer"
                 >
                   Book Now
-                </a>
+                </button>
                 <button
                   onClick={onOpenCalculator}
-                  className="w-full flex items-center justify-center gap-2 bg-white border-2 border-brand/20 hover:border-brand text-brand font-bold py-4 px-4 rounded-xl transition-all"
+                  className="w-full flex items-center justify-center gap-2 bg-white border-2 border-brand/20 hover:border-brand text-brand font-bold py-4 px-4 rounded-xl transition-all cursor-pointer"
                 >
                   <Calculator className="w-4 h-4" />
                   Calculate Savings
@@ -117,12 +118,12 @@ const Services: React.FC<ServicesProps> = ({ onOpenCalculator }) => {
               </ul>
 
               <div className="space-y-4 mt-auto">
-                <a 
-                  href="#contact"
-                  className="block w-full text-center bg-slate-900 hover:bg-black text-white font-bold py-4 px-4 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-[0.98]"
+                <button 
+                  onClick={onOpenBooking}
+                  className="block w-full text-center bg-slate-900 hover:bg-black text-white font-bold py-4 px-4 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-[0.98] cursor-pointer"
                 >
                   Request Site Survey
-                </a>
+                </button>
               </div>
             </div>
           </div>

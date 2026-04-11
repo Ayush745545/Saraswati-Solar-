@@ -52,7 +52,7 @@ const App: React.FC = () => {
                 onOpenBooking={() => setIsBookingOpen(true)} 
               />
               <WhyUs />
-              <Services onOpenCalculator={() => setIsCalculatorOpen(true)} />
+              <Services onOpenCalculator={() => setIsCalculatorOpen(true)} onOpenBooking={() => setIsBookingOpen(true)} />
               <TOPConTechnology />
               <Products />
               <Features />
